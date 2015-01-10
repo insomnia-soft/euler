@@ -17,7 +17,7 @@ int main(int argc, char *argv[]) {
     int n = 2;
     int div = 0;
 
-    long long number = 0x8BE589EAC7;
+    long long number = 0x8BE589EAC7LL;
 
     while (1) {
         div = 0;
