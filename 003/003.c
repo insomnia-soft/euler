@@ -13,39 +13,39 @@
 #include <stdlib.h>
 
 int main(int argc, char *argv[]) {
-	int i;
-	int n = 2;
-	int div = 0;
-	
-	long long number = 0x8BE589EAC7;
-	
-	while (1) {
-		div = 0;
-		
-		for (i = 2; i < n; i++) {
-			if (n % i == 0) {
-				div = 1;
-				break;
-			}
-		}
-		
-		if (div == 0) {
-			printf("%lld mod %d = %d\n", number, n, number % n);
-			
-			if (number % n == 0) {
-				number /= n;
-				
-				if (n > number) {
-					break;
-				}
-			}
-		}
+    int i;
+    int n = 2;
+    int div = 0;
 
-		n++;
-	}
-	
-	printf("%lld mod %d = %d\n", number, n, number % n);
-	
-	system("PAUSE");
-	return 0;
+    long long number = 0x8BE589EAC7;
+
+    while (1) {
+        div = 0;
+
+        for (i = 2; i < n; i++) {
+            if (n % i == 0) {
+                div = 1;
+                break;
+                }
+            }
+
+        if (div == 0) {
+            printf("%lld mod %d = %d\n", number, n, number % n);
+
+            if (number % n == 0) {
+                number /= n;
+
+                if (n > number) {
+                    break;
+                }
+            }
+        }
+
+        n++;
+    }
+
+    printf("%lld mod %d = %d\n", number, n, number % n);
+
+    system("PAUSE");
+    return 0;
 }

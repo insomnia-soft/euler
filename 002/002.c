@@ -14,25 +14,25 @@
 #include <stdlib.h>
 
 int main(int argc, char *argv[]) {
-	int i = 1;
-	int j = 1;
-	int tmp;
-	int sum = 0;
-	
-	for (; i < 4000000;) {
-        if (i % 2 == 0) {
-			sum += i;
-		}
-        
-        printf("%d\n", i);
-        
-		tmp = i;
-		i += j;
-		j = tmp;
-	}
+    int i = 1;
+    int j = 1;
+    int tmp;
+    int sum = 0;
 
-	printf("sum = %d\n", sum);
-	
-	system("PAUSE");
-	return 0;
+    for (; i < 4000000;) {
+        if (i % 2 == 0) {
+            sum += i;
+        }
+
+        printf("%d\n", i);
+
+        tmp = i;
+        i += j;
+        j = tmp;
+    }
+
+    printf("sum = %d\n", sum);
+
+    system("PAUSE");
+    return 0;
 }

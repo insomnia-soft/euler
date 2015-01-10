@@ -14,25 +14,25 @@
 #define MAX 20
 
 int main(int argc, char *argv[]) {
-	int i = MAX;
-	int j;
+    int i = MAX;
+    int j;
 
-	while(1) {
-		for (j = 1; j <= MAX; j++) {
-		    if (i % j) {
-		        break;
-			}
+    while(1) {
+        for (j = 1; j <= MAX; j++) {
+            if (i % j) {
+                break;
+            }
 
-			if (j == MAX) {
-				printf("%d\n", i);
-				system("PAUSE");
-				return 0;
-			}
-		}
-		        
-		i += 20;
-	}
+            if (j == MAX) {
+                printf("%d\n", i);
+                system("PAUSE");
+                return 0;
+            }
+        }
 
-	system("PAUSE");
-	return 0;
+        i += 20;
+    }
+
+    system("PAUSE");
+    return 0;
 }
