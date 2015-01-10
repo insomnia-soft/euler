@@ -1,12 +1,12 @@
 /*
-	projecteuler.net
-	
-	Largest prime factor
-	Problem 3
+    projecteuler.net
 
-	The prime factors of 13195 are 5, 7, 13 and 29.
+    Largest prime factor
+    Problem 3
 
-	What is the largest prime factor of the number 600851475143 ?
+    The prime factors of 13195 are 5, 7, 13 and 29.
+
+    What is the largest prime factor of the number 600851475143 ?
 */
 
 #include <stdio.h>
