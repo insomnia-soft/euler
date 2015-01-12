@@ -40,20 +40,20 @@ int str_len(char *a) {
 void add(char *a, char *b, char *rez) {
 	int i = 0;
 	int tmp;
-	int dalje = 0;
-	int st_len = 0;
+	int next = 0;
+	int len = 0;
 	
-	st_len = strlen(a);
+	len = strlen(a);
 	
-	while (*(a + i) || *(b + i) || dalje) {
+	while (*(a + i) || *(b + i) || next) {
 		tmp = 0;
 		
 		if (*(a + i))		tmp += *(a + i) - 48;
 		if (*(b + i))		tmp += *(b + i) - 48;
-		if (dalje)			tmp += dalje;
+		if (next)			tmp += next;
 
 		*(rez + i) = tmp % 10 + 48;
-		dalje = (int) tmp / 10;
+		next = (int) tmp / 10;
 		i++;
 	}
 }
@@ -69,9 +69,9 @@ void copy(char *a, char *b) {
 
 int main(int argc, char *argv[]) {
 	FILE *fp;
-	char red[100] = {0};
+	char row[100] = {0};
 	int curr_line = 0;
-	char broj[100] = {0};
+	char num[100] = {0};
 	char sum[500] = {0};
 	char tmp[500] = {0};
 	int i;
@@ -81,15 +81,15 @@ int main(int argc, char *argv[]) {
 	fp = fopen("numbers.txt", "r");
 		
 	if (fp != NULL) {
-		while (fgets(red, 100, fp) != NULL) {
-			reset(broj);
+		while (fgets(row, 100, fp) != NULL) {
+			reset(num);
 			reset(tmp);
 			
 			for (i = 0; i < 50; i++) {
-				broj[49 - i] = red[i];
+				num[49 - i] = row[i];
 			}
 			
-			add(broj, sum, tmp);
+			add(num, sum, tmp);
 			copy(tmp, sum);
 			curr_line++;
 		}

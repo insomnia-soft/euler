@@ -23,36 +23,36 @@
 #include <stdlib.h>
 
 int main(int argc, char *argv[]) {
-	unsigned long i;
-	unsigned long max_loops = 0;
-	unsigned long max_number = 0;
-	unsigned long loop;
-	unsigned long broj;
+    unsigned long i;
+    unsigned long max_loops = 0;
+    unsigned long max_number = 0;
+    unsigned long loop;
+    unsigned long n;
 
-	for (i = 1; i <= 1000000; i++) {
-		broj = i;
-		loop = 0;
+    for (i = 1; i <= 1000000; i++) {
+        n = i;
+        loop = 0;
 
-		while (broj != 1) {
-			if (broj % 2 == 0) {
-				broj /= 2;
+        while (n != 1) {
+            if (n % 2 == 0) {
+                n /= 2;
             } else {
-				broj = broj * 3 + 1;
+                n = n * 3 + 1;
             }
 
-			loop++;
-		}
+            loop++;
+        }
 
-		if (loop > max_loops) {
-			max_loops = loop;
-			max_number = i;
+        if (loop > max_loops) {
+            max_loops = loop;
+            max_number = i;
 
-			printf("loops: %5d     number: %5d\n", max_loops, i);
-		}
-	}
+            printf("loops: %5d     number: %5d\n", max_loops, i);
+        }
+    }
 
-	printf("max_number: %d\n", max_number);
+    printf("max_number: %d\n", max_number);
 
-	system("PAUSE");
-	return 0;
+    system("PAUSE");
+    return 0;
 }

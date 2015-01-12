@@ -1,3 +1,16 @@
+Lexicographic permutations
+Problem 24
+
+A permutation is an ordered arrangement of objects. For example, 3124 is one possible permutation of the digits 1, 2, 3 and 4. If all of the permutations are listed numerically or alphabetically, we call it lexicographic order. The lexicographic permutations of 0, 1 and 2 are:
+
+012   021   102   120   201   210
+
+What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?
+
+
+
+
+
 2 6 8 1 7 4 5 x x x
 
 __________________________________________
@@ -10,7 +23,7 @@ __________________________________________
 
 0xxxxxxxxx = do   362.880
 1xxxxxxxxx = do   725.760
-2xxxxxxxxx = do 1.088.640 gornja granica!
+2xxxxxxxxx = do 1.088.640 upper bound!
 __________________________________________
 
 0 1 3 4 5 6 7 8 9
@@ -35,7 +48,7 @@ __________________________________________
 3xxxxxxxx = do 887.040
 4xxxxxxxx = do 927.360
 5xxxxxxxx = do 967.680
-6xxxxxxxx = do 1.008.000 gornja granica!
+6xxxxxxxx = do 1.008.000 upper bound!
 7xxxxxxxx = do 1.048.320
 8xxxxxxxx = do 1.088.640
 __________________________________________
@@ -62,7 +75,7 @@ __________________________________________
 3xxxxxxx = do 987.840
 4xxxxxxx = do 992.880
 5xxxxxxx = do 997.920
-6xxxxxxx = do 1.002.960 gornja granica
+6xxxxxxx = do 1.002.960 upper bound
 7xxxxxxx = do 1.008.000
 __________________________________________
 
@@ -83,7 +96,7 @@ __________________________________________
 			 997.920
 0xxxxxx = do 998.640
 1xxxxxx = do 999.360
-2xxxxxx = do 1.000.080 gornja granica
+2xxxxxx = do 1.000.080 upper bound
 __________________________________________
 
 0 3 4 5 7 9
@@ -105,7 +118,7 @@ __________________________________________
 2xxxxx = do 999.720
 3xxxxx = do 999.840
 4xxxxx = do 999.960
-5xxxxx = do 1.000.080 gornja granica
+5xxxxx = do 1.000.080 upper bound
 __________________________________________
 
 0 3 4 5 9
@@ -124,7 +137,7 @@ __________________________________________
            999.960
 0xxxx = do 999.984
 1xxxx = do 999.984
-2xxxx = do 1.000.008 gornja granica
+2xxxx = do 1.000.008 upper bound
 __________________________________________
 
 0 3 5 9
@@ -141,7 +154,7 @@ __________________________________________
 		  999.984
 0xxx = do 999.990
 3xxx = do 999.996
-5xxx = do 1.000.002 gornja granica
+5xxx = do 1.000.002 upper bound
 9xxx = do 1.000.008
 
 __________________________________________
