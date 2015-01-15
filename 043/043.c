@@ -1,120 +1,111 @@
+/*
+    projecteuler.net
+
+    Sub-string divisibility
+    Problem 43
+
+    The number, 1406357289, is a 0 to 9 pandigital number because it is made up of each of the digits 0 to 9 in some order, but it also has a rather interesting sub-string divisibility property.
+
+    Let d1 be the 1st digit, d2 be the 2nd digit, and so on. In this way, we note the following:
+
+        d2d3d4=406 is divisible by 2
+        d3d4d5=063 is divisible by 3
+        d4d5d6=635 is divisible by 5
+        d5d6d7=357 is divisible by 7
+        d6d7d8=572 is divisible by 11
+        d7d8d9=728 is divisible by 13
+        d8d9d10=289 is divisible by 17
+
+    Find the sum of all 0 to 9 pandigital numbers with this property.
+*/
+
 #include <stdio.h>
+#define MAX 10
 
-#define MAX 9
-#define MIN 0
+int prime[MAX];
+int array[MAX];
+long long int sum;
 
-long long sum = 0;
-
-void devet(int a, int b, int c, int d, int e, int f, int g, int h, int i)
-{
-	int fail;
-	int x;
-	long long broj;
-	for (x = 9; x >= 0; x--)
-		if (x != a && x != b && x != c && x != d && x != e && x != f && x != g && x != h && x != i)
-		{
-			fail = 1;
-			
-			if ((b * 100 + c * 10 + d) % 2 != 0)				fail = 0;
-			if (fail == 1 && (c * 100 + d * 10 + e) % 3 != 0)	fail = 0;
-			if (fail == 1 && (d * 100 + e * 10 + f) % 5 != 0)	fail = 0;
-			if (fail == 1 && (e * 100 + f * 10 + g) % 7 != 0)	fail = 0;
-			if (fail == 1 && (f * 100 + g * 10 + h) % 11 != 0)	fail = 0;
-			if (fail == 1 && (g * 100 + h * 10 + i) % 13 != 0)	fail = 0;
-			if (fail == 1 && (h * 100 + i * 10 + x) % 17 != 0)	fail = 0;
-			
-			if (fail == 1)
-			{
-				broj = a * 10 + b;
-				broj = broj * 10 + c;
-				broj = broj * 10 + d;
-				broj = broj * 10 + e;
-				broj = broj * 10 + f;
-				broj = broj * 10 + g;
-				broj = broj * 10 + h;
-				broj = broj * 10 + i;
-				broj = broj * 10 + x;
-				printf("%lld\n", broj);
-				sum += broj;
-			}
-		}
+void swap(int x, int y) {
+    int tmp = *(array + x);
+    *(array + x) = *(array + y);
+    *(array + y) = tmp;
 }
 
-void osam(int a, int b, int c, int d, int e, int f, int g, int h)
-{
-	int x;
-	for (x = 9; x >= 0; x--)
-		if (x != a && x != b && x != c && x != d && x != e && x != f && x != g && x != h)
-			devet(a, b, c, d, e, f, g, h, x); // 987654321
+void add() {
+    int i;
+    long long int n = 0;
+
+    for (i = 0; i < MAX; i++) {
+        n = n * 10 + array[i];
+    }
+    printf("%lld\n", n);
+    sum += n;
 }
 
-void sedam(int a, int b, int c, int d, int e, int f, int g)
-{
-	int x;
-	for (x = 9; x >= 0; x--)
-		if (x != a && x != b && x != c && x != d && x != e && x != f && x != g)
-			osam(a, b, c, d, e, f, g, x); // 98765432
+int is_prime(int n) {
+    int i;
+
+    for (i = 2; i <= (n / 2); i++) {
+        if (n % i == 0) {
+            return 0;
+        }
+    }
+    return 1;
 }
 
-void sest(int a, int b, int c, int d, int e, int f)
-{
-	int x;
-	for (x = 9; x >= 0; x--)
-		if (x != a && x != b && x != c && x != d && x != e && x != f)
-			sedam(a, b, c, d, e, f, x); // 9876543
+void set_prime_numbers() {
+    int c = 0;
+    int i = 2;
+
+    do {
+        if (is_prime(i)) {
+            prime[c] = i;
+            c++;
+        }
+        i++;
+    } while (c < MAX);
 }
 
-void pet(int a, int b, int c, int d, int e)
-{
-	int x;
-	for (x = 9; x >= 0; x--)
-		if (x != a && x != b && x != c && x != d && x != e)
-			sest(a, b, c, d, e, x); // 987654
+void test() {
+    int i, j, n, add_sum = 0;
+
+    for (i = 1; i < (MAX - 2); i++) {
+        n = 0;
+        for (j = 0; j < 3; j++) {
+            n = n * 10 + array[i + j];
+        }
+        if (n % prime[i - 1] != 0) {
+            return;
+        }
+    }
+    add();
 }
 
-void cetiri(int a, int b, int c, int d)
-{
-	int x;
-	for (x = 9; x >= 0; x--)
-		if (x != a && x != b && x != c && x != d)
-			pet(a, b, c, d, x); // 98765
+void permute(int n) {
+    int c;
+
+    if (n == 0) {
+        test();
+        return;
+    }
+    for (c = 0; c < n; c++) {
+        permute(n - 1);
+        swap(n % 2 ? 0 : c, n - 1);
+    }
 }
 
-void tri(int a, int b, int c)
-{
-	int x;
-	for (x = 9; x >= 0; x--)
-		if (x != a && x != b && x != c)
-			cetiri(a, b, c, x); // 9876
-}
+int main(int argc, char *argv[]) {
+    int i;
 
-void dva(int a, int b)
-{
-	int x;
-	for (x = 9; x >= 0; x--)
-		if (x != a && x != b)
-			tri(a, b, x); // 987
-}
+    sum = 0;
+    set_prime_numbers();
+    for (i = 0; i < MAX; i++) {
+        array[i] = MAX - i - 1;
+    }
 
-void jedan(int a)
-{
-	int x;
-	for (x = 9; x >= 0; x--)
-		if (x != a)
-			dva(a, x); // 98
-}
-
-int main(int argc, char *argv[])
-{
-	int x;
-	
-	for (x = MAX; x >= MIN; x--)
-	{
-		jedan(x); // 9
-	}
-	
-	printf("sum: %lld\n", sum);
-	
-	system("PAUSE");
-	return 0;
+    permute(MAX);
+    printf("sum = %lld\n", sum);
+    system("PAUSE");
+    return 0;
 }
