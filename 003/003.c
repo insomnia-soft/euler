@@ -26,8 +26,8 @@ int main(int argc, char *argv[]) {
             if (n % i == 0) {
                 div = 1;
                 break;
-                }
             }
+        }
 
         if (div == 0) {
             printf("%lld mod %d = %d\n", number, n, number % n);
