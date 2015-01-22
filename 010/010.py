@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 #
 
-def isprime(n):
-    for i in range(2, n / 2 + 1):
+def isprime(n, primes):
+    for i in primes:
         if n % i == 0:
             return False
             
@@ -19,16 +19,15 @@ def main():
     Find the sum of all the primes below two million.
     """
     
+    primes = [2]
     psum = 0
     
-    for i in range(2, 2000000):
+    for i in range(3, 2000000):
         if i % 10000 == 0:
             print i
-        if isprime(i):
+        if isprime(i, primes):
+            primes.append(i)
             psum += i
-            
-    print psum
-    return 0
 
 if __name__ == '__main__':
     main()
