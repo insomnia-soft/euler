@@ -60,15 +60,20 @@ def main():
     adj = 4
 
     path = [[0, 1], [1, 1], [1, 0], [1, -1], [0, -1], [-1, -1], [-1, 0], [-1, 1]]
-    smax = 0
+    pmax = 0
 
-    for i in range(0, len(grid) - 1):
-        for j in range(0 , len(grid[i]) - 1):
-            for k in range(0, len(path) - 1):
-                for l in range(4):
-                    if (i - l >= 0 and i + l < gridsize and j - l)
-            
-        print
+    for i in range(gridsize):
+        for j in range(gridsize):
+            for k in range(len(path)):
+                ni = i + path[k][0] * (adj - 1)
+                nj = j + path[k][1] * (adj - 1)
+                if (ni >= 0 and ni < gridsize and nj >= 0 and nj < gridsize):
+                    tmp = grid[i][j]
+                    for l in range(1, adj):
+                        tmp *= grid[i + path[k][0] * l][j + path[k][1] * l]
+                    if tmp > pmax:
+                        pmax = tmp
+    print pmax
     return 0
 
 if __name__ == '__main__':
