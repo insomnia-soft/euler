@@ -17,7 +17,7 @@ int main(int argc, char *argv[]) {
     int i = MAX;
     int j;
 
-    while(1) {
+    while (1) {
         for (j = 1; j <= MAX; j++) {
             if (i % j) {
                 break;

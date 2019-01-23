@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 
-def isprime(n):
+def isPrime(n):
     for i in range(2, n / 2 + 1):
         if n % i == 0:
             return False
@@ -21,10 +21,13 @@ def main():
     
     i = 2
     p = 0
+    n = 10001
     
-    while p <= 10001:
-        if isprime(i):
+    while True:
+        if isPrime(i):
             p += 1
+            if p == n:
+                break
         i += 1
             
     print i

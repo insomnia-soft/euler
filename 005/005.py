@@ -12,7 +12,7 @@ def main():
     What is the smallest positive number that is evenly divisible (divisible with no remainder) by all of the numbers from 1 to 20?
     """
     
-    dividers = 10
+    dividers = 20
     i = dividers + 1
     loop = 1
     

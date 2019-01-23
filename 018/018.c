@@ -38,7 +38,7 @@
 #define MAX_ROWS 100
 #define LINE 10000
 
-int strlen(char *a) {
+int strlength(char *a) {
     int i = 0;
     for (i = 0; *(a + i) != 0; i++);
     return i;
@@ -64,13 +64,12 @@ int main(int argc, char *argv[]) {
     
     if (fp == NULL) {
         printf("can't open file 'p018_triangle.txt'\n");
-        system("PAUSE");
         return 0;
     }
     
 	while (fgets(row, LINE, fp) != NULL) {
         rows++;
-        for (i = 0; i < strlen(row); i++) {
+        for (i = 0; i < strlength(row); i++) {
             if (row[i] >= 48 && row[i] <= 57) {
                 triangle[curr_row][curr_col] = triangle[curr_row][curr_col] * 10 + row[i] - 48;
             } else {
@@ -104,6 +103,5 @@ int main(int argc, char *argv[]) {
     
     printf("max = %d\n", j);
 
-    system("PAUSE");
     return 0;
 }

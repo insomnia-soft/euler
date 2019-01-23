@@ -38,6 +38,5 @@ int main(int argc, char *argv[]) {
     }
 
     printf("%d\n", sum3);
-    system("PAUSE");
     return 0;
 }

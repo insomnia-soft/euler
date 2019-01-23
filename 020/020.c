@@ -15,6 +15,14 @@
 #include <stdio.h>
 #define MAX 100000
 
+void reset(char *a);
+void copy(char *a, char *b);
+void sum(char *a, char *b, char *rez);
+void multiply(char *a, char *b, char *rez);
+int str_len(char *a);
+int num_len(int a);
+
+
 void reset(char *a) {
     int i = 0;
     while (*(a + i)) {
@@ -163,6 +171,5 @@ int main(int argc, char *argv[]) {
 
     printf("sum: %d\n", k);
 
-    system("PAUSE");
     return 0;
 }
